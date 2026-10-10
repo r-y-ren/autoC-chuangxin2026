@@ -1,0 +1,432 @@
+{
+  "project": "chuangxin2026",
+  "goals": [
+    {
+      "id": "R1",
+      "title": "六类干扰样式生成引擎 [P0]",
+      "src": "fn_docs/requirements.md"
+    },
+    {
+      "id": "R2",
+      "title": "功率标定与步进 [P0]",
+      "src": "fn_docs/requirements.md"
+    },
+    {
+      "id": "R3",
+      "title": "被测双链路采集（真实+合成源） [P0]",
+      "src": "fn_docs/requirements.md"
+    },
+    {
+      "id": "R4",
+      "title": "三路统一采集与时间对齐 [P0]",
+      "src": "fn_docs/requirements.md"
+    },
+    {
+      "id": "R5",
+      "title": "国标步进执行器 [P0]",
+      "src": "fn_docs/requirements.md"
+    },
+    {
+      "id": "R6",
+      "title": "SigMF 真值数据集 [P0]",
+      "src": "fn_docs/requirements.md"
+    },
+    {
+      "id": "R7",
+      "title": "AI 干扰样式识别 [P0]",
+      "src": "fn_docs/requirements.md"
+    },
+    {
+      "id": "R8",
+      "title": "一键演示与自动报告 [P0]",
+      "src": "fn_docs/requirements.md"
+    },
+    {
+      "id": "R9",
+      "title": "插件式扩展层 [P0]（模块化硬约束的落点）",
+      "src": "fn_docs/requirements.md"
+    },
+    {
+      "id": "R10",
+      "title": "Web 操控台 [P0]",
+      "src": "fn_docs/requirements.md"
+    },
+    {
+      "id": "R11",
+      "title": "SITL 链路退化注入预研 [P1]",
+      "src": "fn_docs/requirements.md"
+    },
+    {
+      "id": "R12",
+      "title": "2D 示意动画（非重点，不阻塞验收） [P1]",
+      "src": "fn_docs/requirements.md"
+    },
+    {
+      "id": "R13",
+      "title": "产品最后一公里（fn-analyze P2，演进轮 2026-10-03） [P0]",
+      "src": "fn_docs/requirements.md"
+    },
+    {
+      "id": "R14",
+      "title": "加速判据解耦（P3） [P0]",
+      "src": "fn_docs/requirements.md"
+    },
+    {
+      "id": "R15",
+      "title": "标定消费+断点续跑（P4，fn-implement 评审遗留两项） [P0]",
+      "src": "fn_docs/requirements.md"
+    },
+    {
+      "id": "R16",
+      "title": "中期材料编译线（P5） [P0]",
+      "src": "fn_docs/requirements.md"
+    },
+    {
+      "id": "R17",
+      "title": "设备状态面板（演进轮二，2026-10-06） [P0]",
+      "src": "fn_docs/requirements.md"
+    },
+    {
+      "id": "R18",
+      "title": "界面精修·深色驾驶舱（演进轮二） [P0]",
+      "src": "fn_docs/requirements.md"
+    },
+    {
+      "id": "R19",
+      "title": "模拟数据实时接入（演进轮三，2026-10-06） [P0]",
+      "src": "fn_docs/requirements.md"
+    },
+    {
+      "id": "R20",
+      "title": "交互增强包·原生画布（演进轮三） [P0]",
+      "src": "fn_docs/requirements.md"
+    },
+    {
+      "id": "R21",
+      "title": "结果仪表盘（演进轮四，2026-10-06） [P0]",
+      "src": "fn_docs/requirements.md"
+    }
+  ],
+  "method": {
+    "tree_src": "fn_docs/responsibility.md",
+    "tree_excerpt": "# 责任文档：无人机链路抗干扰测评台（STITP 一期）\n\n> 由 fn-divide 产出与独占更新；fn-implement 只读。进度与状态见 implementation.md。\n> 职责字段是**重写规约**：凭职责详述 + 签名意图（输入/输出），必须能完美复现该函数功能。\n> **实现期发现结构性变化（函数增/删/拆/并/职责或调用关系变化）必须回到本阶段改本文档**（快速确认通道除外，须留变更说明）。\n> 产出依据：fn_docs/requirements.md（2026-10-03 严格重跑版，R1–R12，用户门口确认）。\n\n## 结构概览（纯结构，不带职责）\n\n- generate_jamming ← R1\n  - synthesize_style\n- calibrate_power ← R2",
+    "functions": [
+      {
+        "name": "load_scenario",
+        "status": "tested",
+        "src": "fn_docs/implementation/functions.md"
+      },
+      {
+        "name": "write_sigmf",
+        "status": "tested",
+        "src": "fn_docs/implementation/functions.md"
+      },
+      {
+        "name": "read_sigmf",
+        "status": "tested",
+        "src": "fn_docs/implementation/functions.md"
+      },
+      {
+        "name": "EstopManager",
+        "status": "tested",
+        "src": "fn_docs/implementation/functions.md"
+      },
+      {
+        "name": "make_spectrogram",
+        "status": "tested",
+        "src": "fn_docs/implementation/functions.md"
+      },
+      {
+        "name": "create_instrument_backend",
+        "status": "wired",
+        "src": "fn_docs/implementation/functions.md"
+      },
+      {
+        "name": "synthesize_style",
+        "status": "tested",
+        "src": "fn_docs/implementation/functions.md"
+      },
+      {
+        "name": "generate_jamming",
+        "status": "wired",
+        "src": "fn_docs/implementation/functions.md"
+      },
+      {
+        "name": "parse_serial_line",
+        "status": "tested",
+        "src": "fn_docs/implementation/functions.md"
+      },
+      {
+        "name": "start_dut_source",
+        "status": "tested",
+        "src": "fn_docs/implementation/functions.md"
+      },
+      {
+        "name": "collect_dut_samples",
+        "status": "wired",
+        "src": "fn_docs/implementation/functions.md"
+      },
+      {
+        "name": "compute_spectrum_stats",
+        "status": "tested",
+        "src": "fn_docs/implementation/functions.md"
+      },
+      {
+        "name": "record_run_streams",
+        "status": "wired",
+        "src": "fn_docs/implementation/functions.md"
+      },
+      {
+        "name": "plot_triple_curves",
+        "status": "tested",
+        "src": "fn_docs/implementation/functions.md"
+      },
+      {
+        "name": "build_report",
+        "status": "wired",
+        "src": "fn_docs/implementation/functions.md"
+      },
+      {
+        "name": "plan_steps",
+        "status": "tested",
+        "src": "fn_docs/implementation/functions.md"
+      },
+      {
+        "name": "check_failure",
+        "status": "tested",
+        "src": "fn_docs/implementation/functions.md"
+      },
+      {
+        "name": "execute_scenario",
+        "status": "wired",
+        "src": "fn_docs/implementation/functions.md"
+      },
+      {
+        "name": "index_dataset",
+        "status": "wired",
+        "src": "fn_docs/implementation/functions.md"
+      },
+      {
+        "name": "grouped_cv_split",
+        "status": "tested",
+        "src": "fn_docs/implementation/functions.md"
+      },
+      {
+        "name": "train_classifier",
+        "status": "wired",
+        "src": "fn_docs/implementation/functions.md"
+      },
+      {
+        "name": "predict_style",
+        "status": "wired",
+        "src": "fn_docs/implementation/functions.md"
+      },
+      {
+        "name": "run_demo",
+        "status": "wired",
+        "src": "fn_docs/implementation/functions.md"
+      },
+      {
+        "name": "serve_console",
+        "status": "wired",
+        "src": "fn_docs/implementation/functions.md"
+      },
+      {
+        "name": "bridge_to_sitl",
+        "status": "wired",
+        "src": "fn_docs/implementation/functions.md"
+      },
+      {
+        "name": "animate_link_state",
+        "status": "wired",
+        "src": "fn_docs/implementation/functions.md"
+      }
+    ],
+    "tracker": null
+  },
+  "measured": [
+    {
+      "key": "speed",
+      "value": 40.0,
+      "src": "fn_work/runs/demo_mini-1791264217344/speed.json"
+    },
+    {
+      "key": "speed",
+      "value": 40.0,
+      "src": "fn_work/runs/gb42590_noise-1791029196237/speed.json"
+    },
+    {
+      "key": "speed",
+      "value": 40.0,
+      "src": "fn_work/runs/gb42590_noise-1791264194379/speed.json"
+    },
+    {
+      "key": "speed",
+      "value": 1.0,
+      "src": "fn_work/runs/gb42590_noise-1791451883123/speed.json"
+    },
+    {
+      "key": "speed",
+      "value": 80.0,
+      "src": "fn_work/runs/gb42590_noise-1791456846527/speed.json"
+    },
+    {
+      "key": "speed",
+      "value": 80.0,
+      "src": "fn_work/runs/gb42590_noise-1791456877199/speed.json"
+    },
+    {
+      "key": "speed",
+      "value": 80.0,
+      "src": "fn_work/runs/gb42590_noise-1791456906256/speed.json"
+    },
+    {
+      "key": "speed",
+      "value": 80.0,
+      "src": "fn_work/runs/gb42590_noise-1791456928984/speed.json"
+    },
+    {
+      "key": "speed",
+      "value": 80.0,
+      "src": "fn_work/runs/gb42590_noise-1791456973647/speed.json"
+    },
+    {
+      "key": "speed",
+      "value": 80.0,
+      "src": "fn_work/runs/gb42590_noise-1791458783709/speed.json"
+    },
+    {
+      "key": "speed",
+      "value": 80.0,
+      "src": "fn_work/runs/gb42590_noise-1791459033510/speed.json"
+    },
+    {
+      "key": "speed",
+      "value": 80.0,
+      "src": "fn_work/runs/gb42590_noise-1791459059896/speed.json"
+    },
+    {
+      "key": "speed",
+      "value": 80.0,
+      "src": "fn_work/runs/gb42590_noise-1791459296762/speed.json"
+    },
+    {
+      "key": "speed",
+      "value": 80.0,
+      "src": "fn_work/runs/gb42590_noise-1791459661310/speed.json"
+    },
+    {
+      "key": "speed",
+      "value": 1.0,
+      "src": "fn_work/runs/nojam_control-1791451881563/speed.json"
+    },
+    {
+      "key": "speed",
+      "value": 40.0,
+      "src": "fn_work/runs/smoke_loop-1791264185153/speed.json"
+    },
+    {
+      "key": "RC",
+      "value": 0.0,
+      "src": "fn_docs/results/2026-10-03-demo-report.md:4"
+    },
+    {
+      "key": "step1_demo.rc",
+      "value": 0,
+      "src": "fn_docs/results/2026-10-03-runs-summary.json"
+    },
+    {
+      "key": "step1_demo.return_dict.fail_levels.noise_bandlimited",
+      "value": 5.0,
+      "src": "fn_docs/results/2026-10-03-runs-summary.json"
+    },
+    {
+      "key": "step1_demo.report_fail_level_table.fail_level_db",
+      "value": 5.0,
+      "src": "fn_docs/results/2026-10-03-runs-summary.json"
+    },
+    {
+      "key": "step1_demo.report_kpi_samples",
+      "value": 480,
+      "src": "fn_docs/results/2026-10-03-runs-summary.json"
+    },
+    {
+      "key": "step2_gb42590_noise.rc",
+      "value": 0,
+      "src": "fn_docs/results/2026-10-03-runs-summary.json"
+    },
+    {
+      "key": "step3_check_dataset.rc",
+      "value": 0,
+      "src": "fn_docs/results/2026-10-03-runs-summary.json"
+    },
+    {
+      "key": "step3_check_dataset.recordings",
+      "value": 4,
+      "src": "fn_docs/results/2026-10-03-runs-summary.json"
+    },
+    {
+      "key": "step4_macro_f1.value",
+      "value": 1.0,
+      "src": "fn_docs/results/2026-10-03-runs-summary.json"
+    },
+    {
+      "key": "step5_latest_gb42590_run.kpi_csv_lines",
+      "value": 24001,
+      "src": "fn_docs/results/2026-10-03-runs-summary.json"
+    },
+    {
+      "key": "step5_latest_gb42590_run.steps_jsonl_lines",
+      "value": 10,
+      "src": "fn_docs/results/2026-10-03-runs-summary.json"
+    },
+    {
+      "key": "step5_latest_gb42590_run.steps_failed_count",
+      "value": 0,
+      "src": "fn_docs/results/2026-10-03-runs-summary.json"
+    },
+    {
+      "key": "step5_latest_gb42590_run.figs_count",
+      "value": 3,
+      "src": "fn_docs/results/2026-10-03-runs-summary.json"
+    },
+    {
+      "key": "step5_latest_gb42590_run.report_md_size_bytes",
+      "value": 620,
+      "src": "fn_docs/results/2026-10-03-runs-summary.json"
+    },
+    {
+      "key": "step6_three_checks.ui_selftest.rc",
+      "value": 0,
+      "src": "fn_docs/results/2026-10-03-runs-summary.json"
+    },
+    {
+      "key": "step6_three_checks.fn_check_default.rc",
+      "value": 0,
+      "src": "fn_docs/results/2026-10-03-runs-summary.json"
+    },
+    {
+      "key": "step6_three_checks.fn_check_with_venv.rc",
+      "value": 0,
+      "src": "fn_docs/results/2026-10-03-runs-summary.json"
+    }
+  ],
+  "conclusion": [],
+  "analyses": [
+    {
+      "title": "fn-analyze：功能完善度 / 补充开发 / 产品完整性三问（首次分析）",
+      "src": "fn_docs/analyses/2026-10-03-91d059.md"
+    },
+    {
+      "title": "fn-analyze 第二轮：代码完成度复审 + 最小可交付硬件 BOM",
+      "src": "fn_docs/analyses/2026-10-06-1f860a.md"
+    },
+    {
+      "title": "分析台账 registry.jsonl（10 条）",
+      "src": "fn_docs/analyses/registry.jsonl"
+    }
+  ],
+  "missing": [
+    "fn_docs/acceptance.md"
+  ]
+}
